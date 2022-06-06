@@ -34,14 +34,15 @@ const cart = [
 ]
 
 //CODE HERE
-const num1 = parseInt(prompt('9.99'));
-const num2 = parseInt(prompt('8.99'));
-const num3 = parseInt(prompt('7.99'));
+function callbackFunction(prevValue, currentValue) {
+    return prevValue + currentValue.price
+}
 
-const sum = num1 + num2 + num3;
+ 
+const summedPrice = cart.reduce(callbackFunction, 0)
 
-console.log(`The sum of ${num1} and ${num2} and ${num3} is ${sum}`);
-// const summedPrice = cart.reduce(/* CALLBACK HERE */)
+console.log(summedPrice)
+
 
 
 //////////////////PROBLEM 2////////////////////
@@ -60,11 +61,12 @@ console.log(`The sum of ${num1} and ${num2} and ${num3} is ${sum}`);
 */
 
 //CODE HERE
+function calcFinalPrice(cartTotal, couponValue, tax) {
+    let total = cartTotal + (tax * cartTotal) - couponValue
+    return total
+}
 
-
-
-//Not sure how to do it//
-
+console.log(calcFinalPrice(5,1,.05))
 
 
 
@@ -92,10 +94,22 @@ console.log(`The sum of ${num1} and ${num2} and ${num3} is ${sum}`);
     TEXT ANSWER HERE
 
 */
-
+TEXT ANSWER HERE
+    name: string
+    billingAddress: string
+    accountBalanceInDollars: number
+    isRewardsProgramMember: boolean
 /*
     Now, create a customer object following your own
     guidelines.
 */
 
 //CODE HERE
+const custObj = {
+    name: 'Jared Collier',
+    billingAddress: '1234 Main St',
+    accountBalanceInDollars: 5.67,
+    isRewardsProgramMember: true
+} 
+
+console.log(custObj)
