@@ -106,8 +106,8 @@ TEXT ANSWER HERE
 
 //CODE HERE
 const custObj = {
-    name: 'Jared Collier',
-    billingAddress: '1234 Main St',
+    name: 'Adrian Wnek',
+    billingAddress: '600 Milwaukee St.,
     accountBalanceInDollars: 5.67,
     isRewardsProgramMember: true
 } 
