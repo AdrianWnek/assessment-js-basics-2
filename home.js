@@ -22,9 +22,7 @@
 */
 
 //CODE HERE
-const greetUser = function (Adrian) {
-    return `Welcome back, ${Adrian}`;
-};
+const greetUser = username => `Welcome back, ${username}`
 
 console.log(greetUser('Adrian'));
 
@@ -53,16 +51,16 @@ console.log(greetUser('Adrian'));
 const deliveryAreaZipCodes = [85205, 85204, 85203, 85213, 85206]
 
 //CODE HERE
-let canWeDeliver = ('85213');
-
-if (canWeDeliver === '85213') {
-    console.log("canWeDeliver is 85213");
-} else if (zipCode === '85205') {
-    console.log("zipCode is 85205");
-} else {
-    console.log("a is neither 85213, nor 85205");
+function canWeDeliver(zipCode) {
+    if (deliveryAreaZipCodes.includes(zipCode)) {
+        return "You're in our delivery zone!"
+    } else {
+        return "Sorry, we can't deliver to that address"
+    }
 }
-/* 
+console.log(canWeDeliver(85205))
+console.log(canWeDeliver(84043))
+/*
     Problem 2 Continued
 
     Now you're going to rewrite your function.
@@ -80,11 +78,17 @@ if (canWeDeliver === '85213') {
 */
 
 // CODE HERE
-const zipCode = 85203;
-const canWeDeliverTwo = Boolean(zipCode)
+function canWeDeliverTwo(zipCode) {
 
-console.log(canWeDeliverTwo);
-
+    for (let i = 0; i < deliveryAreaZipCodes.length; i++) {
+        if (deliveryAreaZipCodes[i] === zipCode) {
+            return "You're in our delivery zone!"
+        }
+    }
+    return "You're not in our delivery zone."
+}
+console.log(canWeDeliverTwo(99999))
+console.log(canWeDeliverTwo(85204))
 
 //////////////////PROBLEM 3////////////////////
 /* 
@@ -120,14 +124,8 @@ const deals = [
 */
 
 //CODE HERE
-let deal = [
-    {
-        priceChange: '10% Off!',
-        desc: 'Applied to your order',
-    }
-]
-
-console.log(deal);
+deals[0].title = deals[0].title.replace('15','10')
+console.log(deals)
 /*
     The restaurant is going to continue its
     family deal for another month. 
@@ -143,10 +141,5 @@ console.log(deal);
 
 //CODE HERE
 
-const March = function(callback) {
-    console.log(callback())
-}
-
-March(function() {
-    return 'April'
-})
+deals[1].desc = deals[1].desc.replace('March','April').trim()
+console.log(deals)
